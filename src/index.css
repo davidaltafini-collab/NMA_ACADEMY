@@ -1,0 +1,103 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-nma-dark: #121212;
+  --color-nma-darker: #050505;
+  --color-nma-purple: #8b5cf6;
+  --color-nma-purple-light: #a78bfa;
+  --color-nma-purple-dark: #6d28d9;
+  --color-nma-silver: #e2e8f0;
+  --color-nma-silver-dark: #94a3b8;
+
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-[#141419]/75 backdrop-blur-[0.9375rem] border border-white/[0.08] shadow-none;
+  }
+  
+  .glass-card-purple {
+    @apply bg-[#141419]/90 backdrop-blur-[0.9375rem] border border-nma-purple/30 shadow-[0_0_20px_rgba(139,92,246,0.15)];
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+
+  .bg-radial-purple {
+    background: radial-gradient(circle at center, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  }
+}
+
+html,
+body,
+#root {
+  background: #050505;
+  min-height: 100%;
+}
+
+body {
+  @apply bg-nma-darker text-white font-sans antialiased selection:bg-nma-purple selection:text-white overscroll-none overflow-x-hidden;
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 0% -1000%;
+  }
+}
+
+/* Custom Scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050506;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7000ff;
+}
+
+.hero-panther-video::-webkit-media-controls {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-panel {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-current-time-display {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-time-remaining-display {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-mute-button {
+  display: none !important;
+}
+
+.hero-panther-video::-webkit-media-controls-fullscreen-button {
+  display: none !important;
+}

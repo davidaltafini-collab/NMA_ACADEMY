@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(composer --version)",
+      "PowerShell(php --version)",
+      "PowerShell(composer --version)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\Marketing\\\\Documents\\\\NMA_ACADEMY-main-main\\\\backend\\\\database\\\\migrations\" | Sort-Object Name | ForEach-Object { $_.Name })",
+      "Bash(php -r ' *)",
+      "PowerShell(Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/health\" -Method GET)",
+      "PowerShell($body = '{\"name\":\"Test User\",\"email\":\"test@nmaacademy.ro\",\"password\":\"TestPass1\"}'; try { Invoke-WebRequest -Uri \"http://127.0.0.1:8080/api/auth/register\" -Method POST -Body $body -ContentType \"application/json\" -Headers @{\"Accept\"=\"application/json\"} } catch { $_.Exception.Response.GetResponseStream\\(\\) | ForEach-Object { $reader = New-Object System.IO.StreamReader\\($_\\); $reader.ReadToEnd\\(\\) } })",
+      "PowerShell($body = '{\"name\":\"Test User\",\"email\":\"test@nmaacademy.ro\",\"password\":\"TestPass1\"}'; $resp = Invoke-WebRequest -Uri \"http://127.0.0.1:8080/api/auth/register\" -Method POST -Body $body -ContentType \"application/json\" -Headers @{\"Accept\"=\"application/json\"} -SkipHttpErrorCheck; Write-Host \"Status:\" $resp.StatusCode; Write-Host \"Body:\" $resp.Content)",
+      "PowerShell($body = '{\"name\":\"Test User\",\"email\":\"test@nmaacademy.ro\",\"password\":\"TestPass1\"}'; try { Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/auth/register\" -Method POST -Body $body -ContentType \"application/json\" -Headers @{\"Accept\"=\"application/json\"} } catch [System.Net.WebException] { $reader = New-Object System.IO.StreamReader\\($_.Exception.Response.GetResponseStream\\(\\)\\); $reader.ReadToEnd\\(\\) })",
+      "PowerShell($headers = @{\"Accept\"=\"application/json\";\"Content-Type\"=\"application/json\"}; $ver = Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/auth/verify-email-code\" -Method POST -Body '{\"email\":\"p3test@nmaacademy.ro\",\"code\":\"LLF7TM\"}' -Headers $headers; $ver.message)",
+      "PowerShell($headers = @{\"Accept\"=\"application/json\";\"Content-Type\"=\"application/json\"}; $r = Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/auth/login\" -Method POST -Body '{\"email\":\"p3test@nmaacademy.ro\",\"password\":\"TestPass1\"}' -Headers $headers; Write-Host $r.message; Write-Host \"Name:\" $r.data.user.name; Write-Host \"Status:\" $r.data.user.status; Write-Host \"Role:\" $r.data.user.role; $env:TEST_TOKEN = $r.data.token; Write-Host \"Token length:\" $r.data.token.Length)",
+      "PowerShell($h = @{\"Accept\"=\"application/json\";\"Content-Type\"=\"application/json\"}; $r = Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/auth/login\" -Method POST -Body '{\"email\":\"p3test@nmaacademy.ro\",\"password\":\"TestPass1\"}' -Headers $h -TimeoutSec 10; Write-Host $r.message; Write-Host \"Name:\" $r.data.user.name; Write-Host \"Status:\" $r.data.user.status; $env:T = $r.data.token; Write-Host \"Token length:\" $env:T.Length)",
+      "PowerShell($h = @{\"Accept\"=\"application/json\";\"Content-Type\"=\"application/json\";\"Authorization\"=\"Bearer $env:T\"}; $me = Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/auth/me\" -Method GET -Headers $h -TimeoutSec 10; Write-Host \"ME — id:\" $me.data.user.id \"name:\" $me.data.user.name \"email:\" $me.data.user.email \"role:\" $me.data.user.role)",
+      "PowerShell(try { Invoke-RestMethod -Uri \"http://127.0.0.1:8080/api/auth/me\" -Method GET -Headers @{\"Accept\"=\"application/json\";\"Authorization\"=\"Bearer $env:T\"} } catch [System.Net.WebException] { $r = New-Object System.IO.StreamReader\\($_.Exception.Response.GetResponseStream\\(\\)\\); $r.ReadToEnd\\(\\) })",
+      "PowerShell(Select-String -Path \"c:\\\\Users\\\\Marketing\\\\Documents\\\\NMA_ACADEMY-main-main\\\\backend\\\\storage\\\\logs\\\\laravel.log\" -Pattern \"local\\\\.\" | Select-Object -Last 3 | ForEach-Object { $_.Line.Substring\\(0, [Math]::Min\\(300, $_.Line.Length\\)\\) })",
+      "PowerShell(Get-Process php -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "PowerShell(head -100)",
+      "PowerShell(Get-ChildItem -Path \"c:\\\\Users\\\\Marketing\\\\Documents\\\\NMA_ACADEMY-main-main\" -Recurse -File | Select-Object -First 100 | ForEach-Object { $_.FullName })",
+      "Bash(npx tsc *)",
+      "Read(//c/Users/Marketing/.claude/projects/c--Users-Marketing-Documents-NMA-ACADEMY-main-main/memory/**)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\Marketing\\\\Documents\\\\NMA_ACADEMY-main-main\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(npx vite *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Marketing\\.claude\\projects\\c--Users-Marketing-Documents-NMA-ACADEMY-main-main\\memory"
+    ]
+  }
+}
